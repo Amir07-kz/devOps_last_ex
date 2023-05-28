@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:14-alpine
+#    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: shop
+      POSTGRES_USER: shop
+      POSTGRES_PASSWORD: shop
+      POSTGRES_HOST: db
+    volumes:
+      - db:/var/lib/postgresql/data
+#    healthcheck:
+#      test: [ "CMD-SHELL", "pg_isready -U shop -d shop" ]
+#      interval: 15s
+#      timeout: 10s
+#      retries: 7
+#      start_period: 12s
+#    restart: unless-stopped
+
+  redis:
+    image: redis:6-alpine
+    ports:
+      - 6379:6379
+
+volumes:
+  db:
+  redis:

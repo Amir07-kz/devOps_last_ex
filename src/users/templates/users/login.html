@@ -1,0 +1,16 @@
+{% extends 'users/base.html' %}
+{% block title %}Вход{% endblock %}
+{% block content %}
+    <h1>Вход</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="next" value="{{ request.GET.next }}">
+        <button class="btn btn-primary">Войти</button>
+    </form>
+    <hr>
+    <a href="{{ gitlab_auth_link }}" class="btn btn-outline-primary">
+        Войти через аккаунт GitLab
+    </a>
+
+{% endblock %}

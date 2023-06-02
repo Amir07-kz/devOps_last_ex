@@ -10,18 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Получить код
-        uses: actions/checkout@v2
-
-      - name: Настроить Docker
-        uses: docker/setup-docker@v2
-
-      - name: Войти в Docker Hub
-        uses: docker/login-action@v1
-        with:
-          username: ${{ a.dzhunushodzhaev@gmail.com }}
-          password: ${{ isa4emnjc1 }}
-
       - name: Сборка и развертывание
         run: |
           docker-compose up -d --build

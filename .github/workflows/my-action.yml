@@ -12,6 +12,5 @@ jobs:
     steps:
       - name: —борка и развертывание
         run: |
-          cd ../..
           docker-compose -f docker-compose.prod.yaml up
 

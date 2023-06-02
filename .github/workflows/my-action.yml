@@ -12,6 +12,6 @@ jobs:
     steps:
       - name: —борка и развертывание
         run: |
-          cd ../../
+          cd ../..
           docker-compose up -d --build
 

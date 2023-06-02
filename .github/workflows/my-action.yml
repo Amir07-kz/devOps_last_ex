@@ -1,0 +1,23 @@
+name: Сборка и развертывание
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Получить код
+        uses: actions/checkout@v2
+
+      - name: Настроить Docker Compose
+        uses: docker/compose-action@v1
+        with:
+          compose-file: docker-compose.yml
+          compose-command: up -d --build
+
+      # Добавьте другие шаги при необходимости, например, запуск тестов или загрузку собранных образов в реестр.
+

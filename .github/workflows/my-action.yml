@@ -13,11 +13,17 @@ jobs:
       - name: Получить код
         uses: actions/checkout@v2
 
-      - name: Настроить Docker Compose
-        uses: docker/compose-action@v1
-        with:
-          compose-file: docker-compose.yml
-          compose-command: up -d --build
+      - name: Настроить Docker
+        uses: docker/setup-docker@v2
 
-      # Добавьте другие шаги при необходимости, например, запуск тестов или загрузку собранных образов в реестр.
+      - name: Войти в Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.a.dzhunushodzhaev@gmail.com }}
+          password: ${{ secrets.isa4emnjc1 }}
+
+      - name: Сборка и развертывание
+        run: |
+          docker-compose up -d --build
+          # Добавьте любые дополнительные команды для развертывания, тестирования и т. д.
 

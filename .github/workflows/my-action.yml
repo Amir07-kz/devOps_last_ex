@@ -19,7 +19,7 @@ jobs:
       - name: Run Docker image
         run: docker run -d -p 8000:8000 myapp:latest
 
-      - name: Log in в Docker-реестр
+      - name: Log in в Docker Registry
         uses: docker/login-action@v1
         with:
           registry: docker.io

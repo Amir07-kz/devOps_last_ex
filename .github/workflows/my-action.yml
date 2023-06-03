@@ -10,21 +10,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Получить код
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Собрать Docker-образы
+      - name: Build Docker image
         run: docker build -t myapp:latest .
 
-      - name: Запустить Docker-образы
+      - name: Run Docker image
         run: docker run -d -p 8000:8000 myapp:latest
 
-      - name: Войти в Docker-реестр
+      - name: Log in в Docker-реестр
         uses: docker/login-action@v1
         with:
           registry: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Отправить Docker-образ
+      - name: Send Docker image
         run: docker push myapp:latest

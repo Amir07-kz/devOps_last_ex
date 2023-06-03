@@ -30,3 +30,10 @@ jobs:
 
       - name: Send Docker image
         run: docker push amirxan/myapp:latest
+
+      - name: Send Telegram notification trigger
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          message: "Build triggered by ${{ github.actor }}"

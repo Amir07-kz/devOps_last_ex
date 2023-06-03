@@ -49,18 +49,9 @@ services:
       - app
     networks:
       - appnet
-  grafana:
-    image: grafana/grafana:latest
-    ports:
-      - "3000:3000"
-    volumes:
-      - grafana_data:/var/lib/grafana
-    networks:
-      - appnet
 
 networks:
   appnet:
 
 volumes:
   static_volume:
-  grafana_data:

@@ -10,10 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Выход к docker compose
-        run: |
-          cd ../../
-
       - name: Сборка и развертывание
         run: |
           docker-compose -f docker-compose.prod.yaml up

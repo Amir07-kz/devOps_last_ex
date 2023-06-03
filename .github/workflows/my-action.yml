@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: —борка и развертывание
-        run: |
-          cd ../..
+      - uses: actions/checkout@v2
+      - name: Build the stack
+        run:
           docker-compose -f docker-compose.prod.yaml up --build
-          
+
           
 

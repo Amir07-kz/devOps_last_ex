@@ -13,5 +13,10 @@ jobs:
       - name: —борка и развертывание
         run: |
           cd ../..
+
+      - name: —борка
+        run: |
+          docker-compose -f docker-compose.prod.yaml up --build
+          
           
 

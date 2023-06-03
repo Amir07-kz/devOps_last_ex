@@ -16,7 +16,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t myapp:latest .
-          sudo docker tag myapp:latest docker.io/myapp:latest
+          docker tag myapp:latest amirxan/myapp:latest
 
       - name: Run Docker image
         run: docker run -d -p 8000:8000 myapp:latest
@@ -29,4 +29,4 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Send Docker image
-        run: docker push myapp:latest
+        run: docker push amirxan/myapp:latest

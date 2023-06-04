@@ -34,4 +34,4 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          message: "Build completed successfully"
+          message: "Build completed successfully!"
